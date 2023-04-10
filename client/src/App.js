@@ -1,7 +1,28 @@
+import { useState, useEffect } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-function App() {
+const runExampleRequest = async () => {
+  const response = await fetch('/express_backend');
+  const body = await response.json();
+
+  if (response.status !== 200) {
+    throw Error(body.message) 
+  }
+  return body;
+}
+
+const App = () => {
+
+  const [responseData, setResponseData] = useState(undefined);
+
+  useEffect(() => {
+    runExampleRequest()
+      .then(response => setResponseData(response.express))
+      .catch(err => console.log(err));
+
+  }, [])
+
   return (
     <div className="App">
       <header className="App-header">
@@ -17,6 +38,12 @@ function App() {
         >
           Learn React
         </a>
+        <div>
+          Test backend communication:
+          <div>
+            {responseData}
+          </div>
+        </div>
       </header>
     </div>
   );
