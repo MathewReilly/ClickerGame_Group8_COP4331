@@ -1,0 +1,36 @@
+.HomePage{
+    text-align: center;
+}
+
+.HomePage-header{
+    background-color: #375049;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: rgb(218, 218, 218);
+}
+
+.HomePage-h1{
+    color: white;
+    border-bottom-style: outset;
+    border-color: #1a2122a7;
+}
+
+.HomePage-login{
+    padding: 2%;
+    color: rgba(255, 255, 255, 1);
+    background-color: #313746a4;
+    border-style: outset;
+    border-radius: 1%;
+    border-color: #1a21222a;
+    top: 50%;
+    left: 50%;
+    text-align: left;
+}
+
+.HomePage-link{
+    color: rgb(37, 226, 247);
+}
