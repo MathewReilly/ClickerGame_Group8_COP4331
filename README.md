@@ -38,14 +38,20 @@ NOTE:
 The application has two main components, the server and client. The server is responsible for maintaining the database, providing access using a REST webservice over HTTP (Express). The client is responsible for making calls to the server to display information to the user in an interactive manner (React).
 
 ### To start the server:
-Navigate to the "server" directory in terminal and run:
+Navigate to the "server" directory in terminal, if it is your first time running it first run:
+> npm install
+
+then run:
 > node server.js
 
 NOTE:
 > The server code does not hot reload, if you change a file while the server is running those changes will not reflect until you restart the server (at least so far as I can tell).
 
 ### To start the client app:
-Navigate to the "client" directory and run:
+Navigate to the "client" directory in terminal, if it is your first time running it first run:
+> npm install
+
+then run:
 > npm start
 
 NOTE:
