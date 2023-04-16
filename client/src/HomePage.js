@@ -26,7 +26,7 @@ const HomePage = () => {
                             target="_blank"
                             rel="noopener noreferrer"
                         >
-                            Register
+                            Register Test
                         </a>
                     </p>
                 </div>
