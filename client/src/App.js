@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import logo from './logo.svg';
+import flower from './Images/Flower.png';
 import './App.css';
 
 const runExampleRequest = async () => {
@@ -26,7 +26,7 @@ const App = () => {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+        <img src={flower} className="App-logo" alt="flower"/>
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
