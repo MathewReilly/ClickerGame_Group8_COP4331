@@ -10,11 +10,13 @@
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 15s linear;
+    height: fit-content;
   }
 }
 
 .App-header {
   background-color: #add09e;
+  background-image: radial-gradient(rgb(218, 177, 239), rgb(95, 120, 196));
   min-height: 100vh;
   display: flex;
   flex-direction: column;
