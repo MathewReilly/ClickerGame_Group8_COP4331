@@ -26,7 +26,7 @@ const App = () => {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={flower} className="App-logo" alt="flower"/>
+        <img src={flower} className="App-logo" alt="flower" width="600" height="600"/>
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
