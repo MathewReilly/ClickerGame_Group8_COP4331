@@ -1,7 +1,11 @@
 import './HomePage.css';
-
+import RegisterModal from "./RegisterModal";
+import {useState} from 'react';
 
 const HomePage = () => {
+
+    const[openModal, setOpenModal] = useState(false); 
+
     return (
         <div className="HomePage">
             <header className="HomePage-header">
@@ -11,7 +15,7 @@ const HomePage = () => {
                 <div class="HomePage-login">
                     <form>
                         <p>Login: <br></br>
-                            <input type="text" name="username" placeholder="Enter Username"></input> <br></br>
+                            <input type="text" name="username" placeholder="Enter Username" ></input> <br></br>
                             <input type="text" name="password" placeholder="Enter Password"></input>
                             <input type="submit" name="" value="Submit"></input>
                         </p>
@@ -20,15 +24,17 @@ const HomePage = () => {
                 <div>
                     <p>
                         Don't have an account: &nbsp;
-                        <a
+                        <button className="openModalBtn" onClick={() =>{setOpenModal(true)}}>Register Here</button>
+                        { openModal && <RegisterModal closeModal={setOpenModal}/>} 
+                    </p>
+                    <a
                             className="HomePage-link"
                             href="https://cdn.discordapp.com/attachments/1060706693610209281/1067100584693485638/IMG_0914.png"
                             target="_blank"
                             rel="noopener noreferrer"
                         >
-                            Register Test
+                            Click Here for fun
                         </a>
-                    </p>
                 </div>
             </header>
         </div>
