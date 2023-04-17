@@ -21,7 +21,7 @@ function RegisterModal({closeModal}){
                 <form>
                     <p>Create Account: <br></br>
                         <input type="text" name="username" placeholder="Enter Username"></input> <br></br>
-                        <input type="text" name="password" placeholder="Enter Password"></input>
+                        <input type="text" name="password" placeholder="Enter Password"></input> <br></br>
                         <input type="text" name="email" placeholder="Enter Email Adress"></input>
                     </p>
                 </form>
