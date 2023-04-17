@@ -3,6 +3,9 @@ import React from 'react';
 import flower from './Images/Flower.png';
 import sun from './Images/Sun.png';
 import './GamePage.css';
+import LeaderboardModal from "./LeaderboardModal";
+import {useState} from 'react';
+import SettingsModal from './SettingModal';
 
 /*const runExampleRequest = async () => {
   const response = await fetch('/express_backend');
@@ -45,7 +48,8 @@ const GamePage = () => {
           </div>
         </div>
   */
-
+  const[openSettingModal, setOpenSettingModal] = useState(false); 
+  const[openLeaderboardModal, setOpenLeaderboardModal] = useState(false); 
   return (
     <div className="GamePage">
       <header className="Game-header">
@@ -58,8 +62,10 @@ const GamePage = () => {
                 <p placeholder="00000000"></p>
             </div>
             <div className="Game-info-object">
-                <button>Settings</button>
-                <button>Leaderboard</button>
+              <button className="openModalBtn" onClick={() =>{setOpenSettingModal(true)}}>Settings</button>
+                        { openSettingModal && <SettingsModal closeModal={setOpenSettingModal}/>}
+                <button className="openModalBtn" onClick={() =>{setOpenLeaderboardModal(true)}}>Leaderboard</button>
+                        { openLeaderboardModal && <LeaderboardModal closeModal={setOpenLeaderboardModal}/>} 
             </div>
         </div>
         <div className="Game-logo">
