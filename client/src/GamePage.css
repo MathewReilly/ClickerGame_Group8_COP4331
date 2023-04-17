@@ -1,0 +1,77 @@
+.GamePage {
+    text-align: center;
+  }
+  
+  .Game-logo {
+    height: 40vmin;
+    padding: 3%;
+    pointer-events: none;
+  }
+  
+  @media (prefers-reduced-motion: no-preference) {
+    .Game-logo {
+      animation: Game-logo-spin infinite 15s linear;
+      height: fit-content;
+    }
+  }
+  
+  .Game-header {
+    background-color: #add09e;
+    background-image: radial-gradient(rgb(113, 210, 255), rgb(19, 21, 167));
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: rgb(0, 0, 0);
+  }
+
+  .Game-info {
+    background-color: rgba(0, 0, 0, 0.491);
+    max-height: 13vh;
+    min-width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    position: static;
+    position: top;
+    font-size: calc(5px + 2vmin);
+    color: white;
+  }
+
+  .Game-info-object {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .Game-spring {
+    background-image: radial-gradient(rgb(218, 177, 239), rgb(95, 120, 196));
+  }
+
+  .Game-summer {
+    background-image: radial-gradient(rgb(113, 210, 255), rgb(19, 21, 167));
+  }
+
+  .Game-fall {
+    background-image: radial-gradient(rgb(113, 210, 255), rgb(19, 21, 167));
+  }
+
+  .Game-winter {
+    background-image: radial-gradient(rgb(113, 210, 255), rgb(19, 21, 167));
+  }
+  
+  .Game-link {
+    color: #61dafb;
+  }
+  
+  @keyframes Game-logo-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
