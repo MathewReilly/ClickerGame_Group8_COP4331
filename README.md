@@ -72,4 +72,4 @@ Changes can be merged directly (git pull <branch_name>) when "main" is checked o
 
 Your branch can be updated to include new code from "main" by running the following command:
 
-> git pull origin/main
+> git pull origin main
