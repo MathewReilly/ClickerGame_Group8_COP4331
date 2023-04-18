@@ -4,7 +4,7 @@ import flower from './Images/Flower.png';
 import sun from './Images/Sun.png';
 import './GamePage.css';
 import LeaderboardModal from "./LeaderboardModal";
-import {useState} from 'react';
+import { useState } from 'react';
 import SettingsModal from './SettingModal';
 
 /*const runExampleRequest = async () => {
@@ -17,29 +17,94 @@ import SettingsModal from './SettingModal';
   return body;
 }*/
 
-var notVisible = false;
-var gameObject = 0;
+var visible = true;
+var season = 0;
+var score = 0;
 
-function RenderImage({})
-{
-  if(!notVisible)
-  {
-    if(gameObject == 0)
-    {
-      return <img src={sun} className="App-logo" alt="flower" width="50%" height="50%"/>;
-    } else if(gameObject == 1)
-    {
-      return <img src={flower} className="App-logo" alt="flower" width="50%" height="50%"/>;
-    } else if (gameObject == 2)
-    {
-      //return <img src={ghost} className="App-logo" alt="flower" width="50%" height="50%"/>;
-    } else
-    {
-      //return <img src={mcAlpin} className="App-logo" alt="flower" width="50%" height="50%"/>;
-    }
+function RenderSpring() {
+  if (visible) {
+    return (
+      <div className="Spring">
+        <div className="GameLogo">
+          <img src={flower} className="Game-logo" alt="flower" width="42%" height="42%" />
+        </div>
+      </div>
+    );
+  } else {
+    return (
+      <div className="Spring">
+      </div>
+    );
   }
-  
-  return;
+}
+
+function RenderSummer() {
+  if (visible) {
+    return (
+      <div className="Summer">
+        <div className="GameLogo">
+          <img src={sun} className="Game-logo" alt="sun" width="42%" height="42%" />
+        </div>
+      </div>
+    );
+  } else {
+    return (
+      <div className="Summer">
+      </div>
+    );
+  }
+}
+
+/*function RenderFall()
+{
+  if(visible)
+  {
+    return (
+      <div className="fall">
+        <div className="GameLogo">
+          <img src={ghost} className="Game-logo" alt="ghost" width="42%" height="42%"/>;
+        </div>
+      </div>
+    )
+  } else
+  {
+    return (
+      <div className="fall">
+      </div>
+    )
+  }
+}*/
+
+/*function RenderWinter()
+{
+  if(visible)
+  {
+    return (
+      <div className="spring">
+        <img src={mcAlpin} className="Game-logo" alt="mcAlpin" width="42%" height="42%"/>;
+      </div>
+    )
+  } else
+  {
+    return (
+      <div className="spring">
+      </div>
+    )
+  }
+}*/
+
+function RenderSeason({ curSeason, curScore }) {
+  if (curSeason === 0) {
+    return <RenderSpring />
+  } else if (curSeason === 1) {
+    return <RenderSummer />
+  } else if (curSeason === 2) {
+    return <RenderSpring />
+    //return <RenderFall />;
+  } else {
+    return <RenderSpring />
+    //return <RenderWinter />;
+  }
 }
 
 const GamePage = () => {
@@ -53,49 +118,29 @@ const GamePage = () => {
 
   }, [])*/
 
-  /*
-<img src={sun} className="App-logo" alt="flower" width="550" height="550"/>
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        <div>
-          Test backend communication:
-          <div>
-            {responseData}
-          </div>
-        </div>
-  */
-  const[openSettingModal, setOpenSettingModal] = useState(false); 
-  const[openLeaderboardModal, setOpenLeaderboardModal] = useState(false); 
+  const [openSettingModal, setOpenSettingModal] = useState(false);
+  const [openLeaderboardModal, setOpenLeaderboardModal] = useState(false);
 
   return (
     <div className="GamePage">
       <header className="Game-header">
         <div className="Game-info">
-            <div className="Game-info-object">
-                <h1>Group 8</h1> 
-            </div>
-            <div className="Game-info-object"> 
-                <h2>High Score</h2> <br></br>
-                <p placeholder="00000000"></p>
-            </div>
-            <div className="Game-info-object">
-              <button className="openModalBtn" onClick={() =>{setOpenSettingModal(true); notVisible = true;}}>Settings</button>
-                {openSettingModal && <SettingsModal closeModal={setOpenSettingModal}/> }
-              <button className="openModalBtn" onClick={() =>{setOpenLeaderboardModal(true); notVisible = true;}}>Leaderboard</button>
-                { openLeaderboardModal && <LeaderboardModal closeModal={setOpenLeaderboardModal}/>} 
-            </div>
+          <div className="Game-info-object">
+            <h1>Group 8</h1>
+          </div>
+          <div className="Game-info-object">
+            <h2>High Score</h2> <br></br>
+            <p placeholder="00000000"></p>
+          </div>
+          <div className="Game-info-object">
+            <button className="openModalBtn" onClick={() => { setOpenSettingModal(true); visible = false; }}>Settings</button>
+            {openSettingModal && <SettingsModal closeModal={setOpenSettingModal} />}
+            <button className="openModalBtn" onClick={() => { setOpenLeaderboardModal(true); visible = false; }}>Leaderboard</button>
+            {openLeaderboardModal && <LeaderboardModal closeModal={setOpenLeaderboardModal} />}
+          </div>
         </div>
-        <div className="Game-logo">
-          <RenderImage/>
+        <div>
+          <RenderSeason curSeason={season} curScore={score} />
         </div>
       </header>
     </div>
