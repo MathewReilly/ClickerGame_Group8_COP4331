@@ -43,6 +43,7 @@
 }
 
 .Game-info-object {
+  font-size: calc(3px + 2vmin);
   padding-left: 10px;
   padding-right: 10px;
 }

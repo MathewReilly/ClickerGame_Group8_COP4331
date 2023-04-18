@@ -1,18 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { BrowserRouter, Routes, Route} from 'react-router-dom';
 import './index.css';
 import App from './App';
-import HomePage from './HomePage';
-import GamePage from './GamePage';
 import reportWebVitals from './reportWebVitals';
 // import 'bootstrap/dist/css/bootstrap.css';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
+ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <HomePage/>
-    <GamePage/>
-    <App />
+    <BrowserRouter>
+      <Routes>
+        <Route path="/*" element={<App />} />
+      </Routes>
+    </BrowserRouter>
   </React.StrictMode>
 );
 

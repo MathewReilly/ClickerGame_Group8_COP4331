@@ -1,6 +1,7 @@
 import './HomePage.css';
 import RegisterModal from "./RegisterModal";
 import {useState} from 'react';
+import {Link} from 'react-router-dom';
 
 const HomePage = () => {
 
@@ -16,8 +17,8 @@ const HomePage = () => {
                     <form>
                         <p>Login: <br></br>
                             <input type="text" name="username" placeholder="Enter Username" ></input> <br></br>
-                            <input type="text" name="password" placeholder="Enter Password"></input>
-                            <input type="submit" name="" value="Submit"></input>
+                            <input type="text" name="password" placeholder="Enter Password"></input><br></br>
+                            <Link to="/game"> Submit </Link>
                         </p>
                     </form>
                 </div>
@@ -38,6 +39,7 @@ const HomePage = () => {
                 </div>
             </header>
         </div>
+        
     )
 }
 
