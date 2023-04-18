@@ -59,7 +59,7 @@ const GamePage = () => {
             </div>
             <div className="Game-info-object">
                 <h2>High Score</h2> <br></br>
-                <p placeholder="00000000"></p>
+                <div id = "score"> 0 </div> 
             </div>
             <div className="Game-info-object">
               <button className="openModalBtn" onClick={() =>{setOpenSettingModal(true)}}>Settings</button>
@@ -70,6 +70,14 @@ const GamePage = () => {
         </div>
         <div className="Game-logo">
             <img src={sun} className="App-logo" alt="flower" width="50%" height="50%"/>
+            <script>
+                let counter = 0;
+  
+                document.getElementById('sun').onclick = () ={} {
+                  counter = counter + 1};
+                  document.getElementById('score').innerText = counter;
+                ;
+            </script>
         </div>
       </header>
     </div>
