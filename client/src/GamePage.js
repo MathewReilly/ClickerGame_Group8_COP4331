@@ -73,7 +73,7 @@ const GamePage = () => {
             <script>
                 let counter = 0;
   
-                document.getElementById('sun').onclick = () ={} {
+                document.getElementById('sun').onclick = () = {
                   counter = counter + 1};
                   document.getElementById('score').innerText = counter;
                 ;
