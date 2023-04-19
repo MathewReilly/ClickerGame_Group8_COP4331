@@ -19,66 +19,57 @@ import SettingsModal from './SettingModal';
   return body;
 }*/
 
-var visible = true;
-var season = 0;
+var season = 3;
 var score = 0;
 
 function RenderSpring() {
 
   return (
     <div className="Spring">
-
-      <div className="Game-Button">
-
-        <button type="submit">
-          <img src={flower} className="Game-logo" alt="buttonpng" border="0" />
-        </button>
+        <div>
+          <button type="submit"  className="Game-Button">
+            <img src={flower} className="Game-logo" alt="buttonpng" border="0" />
+          </button>
+        </div>
       </div>
-    </div>
-  );
-
+    );
 }
 
 function RenderSummer() {
-
-  return (
-    <div className="Summer">
-      <div className="Game-Button">
-
-        <button type="submit">
-          <img src={sun} className="Game-logo" alt="buttonpng" border="0" />
-        </button>
+    return (
+      <div className="Summer">
+        <div>
+          <button type="submit"  className="Game-Button">
+            <img src={sun} className="Game-logo" alt="buttonpng" border="0" />
+          </button>
+        </div>
       </div>
-    </div>
-  );
+    );
 }
 
 
 function RenderFall() {
-
-  return (
-    <div className="Fall">
-      <div className="GameLogo">
-        <button type="submit">
-          <img src={lantern} className="Game-logo" alt="buttonpng" border="0" />
-        </button>
+    return (
+      <div className="Fall">
+        <div>
+          <button type="submit"  className="Game-Button">
+            <img src={lantern} className="Game-logo" alt="buttonpng" border="0" />
+          </button>
+        </div>
       </div>
-    </div>
-  )
-
+    )
 }
 
 function RenderWinter() {
-
-  return (
-    <div className="Winter">
-      <div className="GameLogo">
-        <button type="submit">
-          <img src={mcAlpin} className="Game-logo" alt="buttonpng" border="0" />
-        </button>
+    return (
+      <div className="Winter">
+        <div>
+          <button type="submit"  className="Game-Button">
+            <img src={mcAlpin} className="Game-logo" alt="buttonpng" border="0" />
+          </button>
+        </div>
       </div>
-    </div>
-  )
+    )
 }
 
 
