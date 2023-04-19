@@ -18,7 +18,7 @@ const HomePage = () => {
                         <p>Login: <br></br>
                             <input type="text" name="username" placeholder="Enter Username" ></input> <br></br>
                             <input type="text" name="password" placeholder="Enter Password"></input><br></br>
-                            <Link to="/game"> Submit </Link>
+                            <Link to="/game">Submit</Link>
                         </p>
                     </form>
                 </div>
