@@ -105,3 +105,11 @@
     transform: rotate(360deg);
   }
 }
+
+#invisible{
+  background: transparent;
+  border: none !important;
+  font-size:0;
+  height: 100px;
+  width: 100px;
+}

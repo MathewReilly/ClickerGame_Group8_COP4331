@@ -10,6 +10,7 @@ import { useState } from 'react';
 import SettingsModal from './SettingModal';
 import leaderboard from "./Images/Leaderboard.png";
 import settings from "./Images/Settings.png";
+import RenderSeason from './Seasons';
 
 /*const runExampleRequest = async () => {
   const response = await fetch('/express_backend');
@@ -21,71 +22,9 @@ import settings from "./Images/Settings.png";
   return body;
 }*/
 
-var season = 2;
+var season = 1;
 var score = 0;
 
-function RenderSpring() {
-
-  return (
-    <div className="Spring">
-        <div>
-          <button type="submit"  className="Game-Button">
-            <img src={flower} className="Game-logo" alt="buttonpng" border="0" />
-          </button>
-        </div>
-      </div>
-    );
-}
-
-function RenderSummer() {
-    return (
-      <div className="Summer">
-        <div>
-          <button type="submit"  className="Game-Button">
-            <img src={sun} className="Game-logo" alt="buttonpng" border="0" />
-          </button>
-        </div>
-      </div>
-    );
-}
-
-
-function RenderFall() {
-    return (
-      <div className="Fall">
-        <div>
-          <button type="submit"  className="Game-Button">
-            <img src={lantern} className="Game-logo" alt="buttonpng" border="0" />
-          </button>
-        </div>
-      </div>
-    )
-}
-
-function RenderWinter() {
-    return (
-      <div className="Winter">
-        <div>
-          <button type="submit"  className="Game-Button">
-            <img src={mcAlpin} className="Game-logo" alt="buttonpng" border="0" />
-          </button>
-        </div>
-      </div>
-    )
-}
-
-
-function RenderSeason({ curSeason, curScore }) {
-  if (curSeason === 0) {
-    return <RenderSpring />
-  } else if (curSeason === 1) {
-    return <RenderSummer />
-  } else if (curSeason === 2) {
-    return <RenderFall />
-  } else {
-    return <RenderWinter />
-  }
-}
 
 const GamePage = () => {
 
@@ -102,7 +41,18 @@ const GamePage = () => {
 
   const [openSettingModal, setOpenSettingModal] = useState(false);
   const [openLeaderboardModal, setOpenLeaderboardModal] = useState(false);
-
+  const [count, setCount] = useState(0);
+  const imageCollection = [flower, sun, lantern, mcAlpin];
+  let val = imageCollection[0] ; 
+  const incrementCount = () => {
+    // Update state with incremented value
+    setCount(count + 1);
+    changePic();
+  };
+  function changePic(){
+    //doesn't update 
+    val = imageCollection[1];
+  }
   return (
     <div className="GamePage">
       <header className="Game-header">
@@ -112,7 +62,7 @@ const GamePage = () => {
           </div>
           <div className="Game-info-object">
             <h2>High Score</h2>
-            <div id="score"> 0 </div>
+            <div id="score"> {count} </div>
           </div>
           <div className="Game-info-object">
             <button className="openModalBtn" onClick={() => { setOpenSettingModal(true);}}> <img src={settings} className="Modal-Button" alt="settingbutton" border="0" /> </button>
@@ -123,7 +73,11 @@ const GamePage = () => {
           </div>
         </div>
         <div>
-          <RenderSeason curSeason={season} curScore={score} />
+  
+            <button type="submit"  className="Game-Button" onClick={incrementCount}>
+              <img src={val} className="Game-logo" alt="buttonpng" border="0" />
+            </button>
+        
         </div>
       </header>
     </div>
