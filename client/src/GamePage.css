@@ -21,6 +21,7 @@
 .Modal-Button{
   height: 50px;
   width: 50px;
+  background-color: transparent;
 }
 
 .Game-Button:active {

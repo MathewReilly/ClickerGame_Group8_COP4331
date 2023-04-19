@@ -75,15 +75,17 @@ function RenderWinter() {
 }
 
 
-function RenderSeason({ curSeason, curScore }) {
+function RenderSeason({ curSeason, curScore }) {  
   if (curSeason === 0) {
     return <RenderSpring />
   } else if (curSeason === 1) {
     return <RenderSummer />
   } else if (curSeason === 2) {
     return <RenderFall />
-  } else {
+  } else if (curSeason === 3){
     return <RenderWinter />
+  } else{
+    return <RenderSpring />
   }
 }
 
