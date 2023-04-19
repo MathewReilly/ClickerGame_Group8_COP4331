@@ -3,7 +3,7 @@ import "./SettingsModal.css"
 
 function SettingsModal({closeModal}){
     return (
-        <div className="modalBackground">
+        <div className="modalBackgroundSettings">
           <div className="modalContainer">
             <div className="titleCloseBtn">
               <button
