@@ -113,9 +113,9 @@ const GamePage = () => {
             <div id="score"> 0 </div>
           </div>
           <div className="Game-info-object">
-            <button className="openModalBtn" onClick={() => { setOpenSettingModal(true); visible = false; }}>Settings</button>
+            <button className="openModalBtn" onClick={() => { setOpenSettingModal(true);}}>Settings</button>
             {openSettingModal && <SettingsModal closeModal={setOpenSettingModal} />}
-            <button className="openModalBtn" onClick={() => { setOpenLeaderboardModal(true); visible = false; }}>Leaderboard</button>
+            <button className="openModalBtn" onClick={() => { setOpenLeaderboardModal(true);}}>Leaderboard</button>
             {openLeaderboardModal && <LeaderboardModal closeModal={setOpenLeaderboardModal} />}
           </div>
         </div>
