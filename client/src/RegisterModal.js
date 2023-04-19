@@ -11,7 +11,7 @@ function RegisterModal({ closeModal }) {
   async function registerUser(event) {
     event.preventDefault();
 
-    const response = await fetch('http://localhost:1337/api/register', {
+    const response = await fetch('http://localhost:5001/api/register', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -62,6 +62,12 @@ function RegisterModal({ closeModal }) {
               onChange={e => setPassword(e.target.value)}
               type="password"
               placeholder="Password"
+            /><br />
+            <input
+              value={nickname}
+              onChange={e => setNickname(e.target.value)}
+              type="nickname"
+              placeholder="nickname"
             /><br />
             <input type="submit" value="Register" />
           </form>
