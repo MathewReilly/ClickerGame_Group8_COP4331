@@ -1,17 +1,17 @@
-.modalBackground{
+.modalBackgroundLeaderboard{
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-color: #375049;
+    background-color: transparent;
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 2;
   }
   
-  .modalContainer{
+  .modalContainerLeaderboard{
     width: 500px;
     height: 600px;
     border-radius: 12px;
