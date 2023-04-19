@@ -42,4 +42,4 @@ function RegisterModal({closeModal}){
       );
     }
 
-export default RegisterModal; 
+export default RegisterModal;
