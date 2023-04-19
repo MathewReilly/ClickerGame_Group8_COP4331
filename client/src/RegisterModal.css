@@ -4,7 +4,7 @@
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-color: #50373d;
+    background-color: #375049;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -72,6 +72,8 @@
   #confirmBtn{
     background-color: white;
     color : #375049;
+    border-style: solid;
+    border-color: #375049;
   }
   
   #cancelBtn{
