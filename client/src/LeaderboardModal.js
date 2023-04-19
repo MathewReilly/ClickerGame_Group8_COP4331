@@ -3,8 +3,8 @@ import "./LeaderboardModal.css"
 
 function LeaderboardModal({closeModal}){
     return (
-        <div className="modalBackground">
-          <div className="modalContainer">
+        <div className="modalBackgroundLeaderboard">
+          <div className="modalContainerLeaderboard">
             <div className="titleCloseBtn">
               <button
                 onClick={() => {
