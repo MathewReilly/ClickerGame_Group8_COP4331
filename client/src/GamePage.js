@@ -20,87 +20,67 @@ import SettingsModal from './SettingModal';
 }*/
 
 var visible = true;
-var season = 3;
+var season = 0;
 var score = 0;
 
 function RenderSpring() {
-  if (visible) {
-    return (
-      <div className="Spring">
 
-        <div className="Game-Button">
+  return (
+    <div className="Spring">
 
-          <button type="submit">
-            <img src={flower} className="Game-logo" alt="buttonpng" border="0" />
-          </button>
-        </div>
+      <div className="Game-Button">
+
+        <button type="submit">
+          <img src={flower} className="Game-logo" alt="buttonpng" border="0" />
+        </button>
       </div>
-    );
-  } else {
-    return (
-      <div className="Spring">
-      </div>
-    );
-  }
+    </div>
+  );
+
 }
 
 function RenderSummer() {
-  if (visible) {
-    return (
-      <div className="Summer">
-        <div className="Game-Button">
 
-          <button type="submit">
-            <img src={sun} className="Game-logo" alt="buttonpng" border="0" />
-          </button>
-        </div>
+  return (
+    <div className="Summer">
+      <div className="Game-Button">
+
+        <button type="submit">
+          <img src={sun} className="Game-logo" alt="buttonpng" border="0" />
+        </button>
       </div>
-    );
-  } else {
-    return (
-      <div className="Summer">
-      </div>
-    );
-  }
+    </div>
+  );
 }
 
+
 function RenderFall() {
-  if (visible) {
-    return (
-      <div className="Fall">
-        <div className="GameLogo">
-          <button type="submit">
-            <img src={lantern} className="Game-logo" alt="buttonpng" border="0" />
-          </button>
-        </div>
+
+  return (
+    <div className="Fall">
+      <div className="GameLogo">
+        <button type="submit">
+          <img src={lantern} className="Game-logo" alt="buttonpng" border="0" />
+        </button>
       </div>
-    )
-  } else {
-    return (
-      <div className="Fall">
-      </div>
-    )
-  }
+    </div>
+  )
+
 }
 
 function RenderWinter() {
-  if (visible) {
-    return (
-      <div className="Winter">
-        <div className="GameLogo">
-          <button type="submit">
-            <img src={mcAlpin} className="Game-logo" alt="buttonpng" border="0" />
-          </button>
-        </div>
+
+  return (
+    <div className="Winter">
+      <div className="GameLogo">
+        <button type="submit">
+          <img src={mcAlpin} className="Game-logo" alt="buttonpng" border="0" />
+        </button>
       </div>
-    )
-  } else {
-    return (
-      <div className="Winter">
-      </div>
-    )
-  }
+    </div>
+  )
 }
+
 
 function RenderSeason({ curSeason, curScore }) {
   if (curSeason === 0) {
