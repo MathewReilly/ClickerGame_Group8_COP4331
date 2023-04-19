@@ -20,15 +20,19 @@ import SettingsModal from './SettingModal';
 }*/
 
 var visible = true;
-var season = 2;
+var season = 3;
 var score = 0;
 
 function RenderSpring() {
   if (visible) {
     return (
       <div className="Spring">
-        <div className="GameLogo">
-          <img src={flower} className="Game-logo" alt="flower" width="42%" height="42%" />
+
+        <div className="Game-Button">
+
+          <button type="submit">
+            <img src={flower} className="Game-logo" alt="buttonpng" border="0" />
+          </button>
         </div>
       </div>
     );
@@ -44,8 +48,11 @@ function RenderSummer() {
   if (visible) {
     return (
       <div className="Summer">
-        <div className="GameLogo">
-          <img src={sun} className="Game-logo" alt="sun" width="42%" height="42%" />
+        <div className="Game-Button">
+
+          <button type="submit">
+            <img src={sun} className="Game-logo" alt="buttonpng" border="0" />
+          </button>
         </div>
       </div>
     );
@@ -57,19 +64,18 @@ function RenderSummer() {
   }
 }
 
-function RenderFall()
-{
-  if(visible)
-  {
+function RenderFall() {
+  if (visible) {
     return (
       <div className="Fall">
         <div className="GameLogo">
-          <img src={lantern} className="Game-logo" alt="lantern" width="42%" height="42%"/>;
+          <button type="submit">
+            <img src={lantern} className="Game-logo" alt="buttonpng" border="0" />
+          </button>
         </div>
       </div>
     )
-  } else
-  {
+  } else {
     return (
       <div className="Fall">
       </div>
@@ -77,17 +83,18 @@ function RenderFall()
   }
 }
 
-function RenderWinter()
-{
-  if(visible)
-  {
+function RenderWinter() {
+  if (visible) {
     return (
       <div className="Winter">
-        <img src={mcAlpin} className="Game-logo" alt="mcAlpin" width="42%" height="42%"/>;
+        <div className="GameLogo">
+          <button type="submit">
+            <img src={mcAlpin} className="Game-logo" alt="buttonpng" border="0" />
+          </button>
+        </div>
       </div>
     )
-  } else
-  {
+  } else {
     return (
       <div className="Winter">
       </div>
@@ -127,19 +134,19 @@ const GamePage = () => {
     <div className="GamePage">
       <header className="Game-header">
         <div className="Game-info">
-            <div className="Game-info-object">
-                <h1>Group 8</h1> 
-            </div>
-            <div className="Game-info-object"> 
-                <h2>High Score</h2>
-                <div id = "score"> 0 </div> 
-            </div>
-            <div className="Game-info-object">
-              <button className="openModalBtn" onClick={() =>{setOpenSettingModal(true); visible = false;}}>Settings</button>
-                {openSettingModal && <SettingsModal closeModal={setOpenSettingModal}/> }
-              <button className="openModalBtn" onClick={() =>{setOpenLeaderboardModal(true); visible = false;}}>Leaderboard</button>
-                { openLeaderboardModal && <LeaderboardModal closeModal={setOpenLeaderboardModal}/>} 
-            </div>
+          <div className="Game-info-object">
+            <h1>Group 8</h1>
+          </div>
+          <div className="Game-info-object">
+            <h2>High Score</h2>
+            <div id="score"> 0 </div>
+          </div>
+          <div className="Game-info-object">
+            <button className="openModalBtn" onClick={() => { setOpenSettingModal(true); visible = false; }}>Settings</button>
+            {openSettingModal && <SettingsModal closeModal={setOpenSettingModal} />}
+            <button className="openModalBtn" onClick={() => { setOpenLeaderboardModal(true); visible = false; }}>Leaderboard</button>
+            {openLeaderboardModal && <LeaderboardModal closeModal={setOpenLeaderboardModal} />}
+          </div>
         </div>
         <div>
           <RenderSeason curSeason={season} curScore={score} />

@@ -6,12 +6,22 @@
   height: 40vmin;
   padding: 3%;
   pointer-events: none;
+  width: 400px;
+
+
+}
+
+.Game-Button{
+  align-items: center;
+  justify-content: center;
+  display: flex;
 }
 
 @media (prefers-reduced-motion: no-preference) {
   .Game-logo {
     animation: Game-logo-spin infinite 15s linear;
     height: fit-content;
+
   }
 }
 
