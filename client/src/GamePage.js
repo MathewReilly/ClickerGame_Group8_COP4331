@@ -118,6 +118,8 @@ const GamePage = () => {
 
   }, [])*/
 
+  //
+
   const [openSettingModal, setOpenSettingModal] = useState(false);
   const [openLeaderboardModal, setOpenLeaderboardModal] = useState(false);
 
@@ -125,19 +127,19 @@ const GamePage = () => {
     <div className="GamePage">
       <header className="Game-header">
         <div className="Game-info">
-          <div className="Game-info-object">
-            <h1>Group 8</h1>
-          </div>
-          <div className="Game-info-object">
-            <h2>High Score</h2> <br></br>
-            <p placeholder="00000000"></p>
-          </div>
-          <div className="Game-info-object">
-            <button className="openModalBtn" onClick={() => { setOpenSettingModal(true); visible = false; }}>Settings</button>
-            {openSettingModal && <SettingsModal closeModal={setOpenSettingModal} />}
-            <button className="openModalBtn" onClick={() => { setOpenLeaderboardModal(true); visible = false; }}>Leaderboard</button>
-            {openLeaderboardModal && <LeaderboardModal closeModal={setOpenLeaderboardModal} />}
-          </div>
+            <div className="Game-info-object">
+                <h1>Group 8</h1> 
+            </div>
+            <div className="Game-info-object"> 
+                <h2>High Score</h2>
+                <div id = "score"> 0 </div> 
+            </div>
+            <div className="Game-info-object">
+              <button className="openModalBtn" onClick={() =>{setOpenSettingModal(true); visible = false;}}>Settings</button>
+                {openSettingModal && <SettingsModal closeModal={setOpenSettingModal}/> }
+              <button className="openModalBtn" onClick={() =>{setOpenLeaderboardModal(true); visible = false;}}>Leaderboard</button>
+                { openLeaderboardModal && <LeaderboardModal closeModal={setOpenLeaderboardModal}/>} 
+            </div>
         </div>
         <div>
           <RenderSeason curSeason={season} curScore={score} />
