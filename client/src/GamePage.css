@@ -15,6 +15,7 @@
   justify-content: center;
   background-color: transparent;
   border-color: transparent;
+  cursor: pointer;
 }
 
 .Game-Button:active {

@@ -19,7 +19,7 @@ import SettingsModal from './SettingModal';
   return body;
 }*/
 
-var season = 2;
+var season = 1;
 var score = 0;
 
 function RenderSpring() {
