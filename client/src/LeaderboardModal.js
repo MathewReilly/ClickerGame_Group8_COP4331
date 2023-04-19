@@ -17,10 +17,45 @@ function LeaderboardModal({closeModal}){
             <div className="title">
               <h1>Leaderboard</h1>
             </div>
-            <div className="body">
-                
+                <table>
+                    <tr>
+                      <th>Username</th>
+                      <th>Score</th>
+                    </tr>
+                    <tr> 
+                    <td> PlaceHolder  </td> <td>  1</td>
+                    </tr>
+                    <tr> 
+                    <td> PlaceHolder  </td> <td>  1</td>
+                    </tr>
+                    <tr> 
+                    <td> PlaceHolder  </td> <td>  1</td>
+                    </tr>
+                    <tr> 
+                    <td> PlaceHolder  </td> <td>  1</td>
+                    </tr>
+                    <tr> 
+                    <td> PlaceHolder  </td> <td>  1</td>
+                    </tr>
+                    <tr> 
+                    <td> PlaceHolder  </td> <td>  1</td>
+                    </tr>
+                    <tr> 
+                    <td> PlaceHolder  </td> <td>  1</td>
+                    </tr>
+                    <tr> 
+                    <td> PlaceHolder  </td> <td>  1</td>
+                    </tr>
+                    <tr> 
+                    <td> PlaceHolder  </td> <td>  1</td>
+                    </tr>
+                    <tr> 
+                    <td> PlaceHolder  </td> <td>  1</td>
+                    </tr>
+                    
+                </table>
             </div>
-          </div>
+          
         </div>
       );
     }
