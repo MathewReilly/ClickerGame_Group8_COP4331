@@ -17,6 +17,11 @@
   border-color: transparent;
 }
 
+.Modal-Button{
+  height: 50px;
+  width: 50px;
+}
+
 .Game-Button:active {
   transform: translateY(7px);
   transform: scale(.9);

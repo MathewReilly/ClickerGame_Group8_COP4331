@@ -8,6 +8,8 @@ import './GamePage.css';
 import LeaderboardModal from "./LeaderboardModal";
 import { useState } from 'react';
 import SettingsModal from './SettingModal';
+import leaderboard from "./Images/Leaderboard.png";
+import settings from "./Images/Settings.png";
 
 /*const runExampleRequest = async () => {
   const response = await fetch('/express_backend');
@@ -113,9 +115,10 @@ const GamePage = () => {
             <div id="score"> 0 </div>
           </div>
           <div className="Game-info-object">
-            <button className="openModalBtn" onClick={() => { setOpenSettingModal(true);}}>Settings</button>
+            <button className="openModalBtn" onClick={() => { setOpenSettingModal(true);}}> <img src={settings} className="Modal-Button" alt="settingbutton" border="0" /> </button>
             {openSettingModal && <SettingsModal closeModal={setOpenSettingModal} />}
-            <button className="openModalBtn" onClick={() => { setOpenLeaderboardModal(true);}}>Leaderboard</button>
+            
+            <button className="openModalBtn" onClick={() => { setOpenLeaderboardModal(true);}}> <img src={leaderboard} className="Modal-Button" alt="leaderboardbutton" border="0" /> </button>
             {openLeaderboardModal && <LeaderboardModal closeModal={setOpenLeaderboardModal} />}
           </div>
         </div>
