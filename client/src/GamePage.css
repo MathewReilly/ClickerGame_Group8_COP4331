@@ -69,6 +69,10 @@
   padding-right: 10px;
 }
 
+.backgroundSpacing{
+  width: 100vw;
+}
+
 .Spring {
   background-image: radial-gradient(rgb(218, 177, 239), rgb(95, 120, 196));
 }

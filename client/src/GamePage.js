@@ -42,18 +42,18 @@ function RenderSummer() {
 
 function RenderFall() {
   return (
-      <img src={lantern} className="Game-logo" alt="buttonpng" border="0" />
+    <img src={lantern} className="Game-logo" alt="buttonpng" border="0" />
   )
 }
 
 function RenderWinter() {
   return (
-          <img src={mcAlpin} className="Game-logo" alt="buttonpng" border="0" />
+    <img src={mcAlpin} className="Game-logo" alt="buttonpng" border="0" />
   )
 }
 
 
-function RenderSeason({ curSeason }) {
+/*function RenderSeason({ curSeason }) {
   season = (Math.floor(score / 20)) % 4;
   if (curSeason === 0) {
     return <RenderSpring />
@@ -65,6 +65,51 @@ function RenderSeason({ curSeason }) {
     return <RenderWinter />
   } else {
     return <RenderSpring />
+  }
+}*/
+
+function RenderSeason({ curSeason, count_temp, incrementCount_temp }) {
+  season = (Math.floor(score / 20)) % 4;
+  if (curSeason === 0) {
+    return (
+      <div className="Spring">
+        <button type="submit" className="Game-Button" onClick={incrementCount_temp}>
+          <RenderSpring />
+        </button>
+      </div>
+    )
+  } else if (curSeason === 1) {
+    return (
+      <div className="Summer">
+        <button type="submit" className="Game-Button" onClick={incrementCount_temp}>
+          <RenderSummer />
+        </button>
+      </div>
+    )
+  } else if (curSeason === 2) {
+    return (
+      <div className="Fall">
+        <button type="submit" className="Game-Button" onClick={incrementCount_temp}>
+          <RenderFall />
+        </button>
+      </div>
+    )
+  } else if (curSeason === 3) {
+    return (
+      <div className="Winter">
+        <button type="submit" className="Game-Button" onClick={incrementCount_temp}>
+          <RenderWinter curSeason={season} />
+        </button>
+      </div>
+    )
+  } else {
+    return (
+      <div className="Spring">
+        <button type="submit" className="Game-Button" onClick={incrementCount_temp}>
+          <RenderSpring />
+        </button>
+      </div>
+    )
   }
 }
 
@@ -108,10 +153,8 @@ const GamePage = () => {
             {openLeaderboardModal && <LeaderboardModal closeModal={setOpenLeaderboardModal} />}
           </div>
         </div>
-        <div>
-          <button type="submit" className="Game-Button" onClick={incrementCount}>
-            <RenderSeason curSeason={season} />
-          </button>
+        <div className="backgroundSpacing">
+          <RenderSeason curSeason={season} count_temp={count} incrementCount_temp={incrementCount} />
         </div>
       </header>
     </div>
