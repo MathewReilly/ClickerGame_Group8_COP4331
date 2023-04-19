@@ -20,7 +20,7 @@ import SettingsModal from './SettingModal';
 }*/
 
 var visible = true;
-var season = 3;
+var season = 2;
 var score = 0;
 
 function RenderSpring() {
@@ -28,9 +28,8 @@ function RenderSpring() {
     return (
       <div className="Spring">
 
-        <div className="Game-Button">
-
-          <button type="submit">
+        <div>
+          <button type="submit"  className="Game-Button">
             <img src={flower} className="Game-logo" alt="buttonpng" border="0" />
           </button>
         </div>
@@ -48,9 +47,8 @@ function RenderSummer() {
   if (visible) {
     return (
       <div className="Summer">
-        <div className="Game-Button">
-
-          <button type="submit">
+        <div>
+          <button type="submit"  className="Game-Button">
             <img src={sun} className="Game-logo" alt="buttonpng" border="0" />
           </button>
         </div>
@@ -68,8 +66,8 @@ function RenderFall() {
   if (visible) {
     return (
       <div className="Fall">
-        <div className="GameLogo">
-          <button type="submit">
+        <div>
+          <button type="submit"  className="Game-Button">
             <img src={lantern} className="Game-logo" alt="buttonpng" border="0" />
           </button>
         </div>
@@ -87,8 +85,8 @@ function RenderWinter() {
   if (visible) {
     return (
       <div className="Winter">
-        <div className="GameLogo">
-          <button type="submit">
+        <div>
+          <button type="submit"  className="Game-Button">
             <img src={mcAlpin} className="Game-logo" alt="buttonpng" border="0" />
           </button>
         </div>

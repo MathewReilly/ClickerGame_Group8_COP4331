@@ -12,9 +12,9 @@
 }
 
 .Game-Button{
-  align-items: center;
+  padding: 16vh;
   justify-content: center;
-  display: flex;
+  background-color: transparent;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -80,14 +80,11 @@
 }
 
 .Winter {
+  padding-top: 65px;
   min-width: 100vw;
   min-height: 87vh;
   max-height: 87vh;
   background-image: radial-gradient(rgb(66, 132, 165), rgb(191, 221, 237));
-}
-
-.Game-link {
-  color: #61dafb;
 }
 
 @keyframes Game-logo-spin {
