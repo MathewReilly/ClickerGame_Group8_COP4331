@@ -2,6 +2,8 @@
 import React from 'react';
 import flower from './Images/Flower.png';
 import sun from './Images/Sun.png';
+import lantern from './Images/JackOLantern.png';
+import mcAlpin from './Images/McAlpin.png';
 import './GamePage.css';
 import LeaderboardModal from "./LeaderboardModal";
 import { useState } from 'react';
@@ -18,7 +20,7 @@ import SettingsModal from './SettingModal';
 }*/
 
 var visible = true;
-var season = 0;
+var season = 2;
 var score = 0;
 
 function RenderSpring() {
@@ -55,43 +57,43 @@ function RenderSummer() {
   }
 }
 
-/*function RenderFall()
+function RenderFall()
 {
   if(visible)
   {
     return (
-      <div className="fall">
+      <div className="Fall">
         <div className="GameLogo">
-          <img src={ghost} className="Game-logo" alt="ghost" width="42%" height="42%"/>;
+          <img src={lantern} className="Game-logo" alt="lantern" width="42%" height="42%"/>;
         </div>
       </div>
     )
   } else
   {
     return (
-      <div className="fall">
+      <div className="Fall">
       </div>
     )
   }
-}*/
+}
 
-/*function RenderWinter()
+function RenderWinter()
 {
   if(visible)
   {
     return (
-      <div className="spring">
+      <div className="Winter">
         <img src={mcAlpin} className="Game-logo" alt="mcAlpin" width="42%" height="42%"/>;
       </div>
     )
   } else
   {
     return (
-      <div className="spring">
+      <div className="Winter">
       </div>
     )
   }
-}*/
+}
 
 function RenderSeason({ curSeason, curScore }) {
   if (curSeason === 0) {
@@ -99,11 +101,9 @@ function RenderSeason({ curSeason, curScore }) {
   } else if (curSeason === 1) {
     return <RenderSummer />
   } else if (curSeason === 2) {
-    return <RenderSpring />
-    //return <RenderFall />;
+    return <RenderFall />
   } else {
-    return <RenderSpring />
-    //return <RenderWinter />;
+    return <RenderWinter />
   }
 }
 

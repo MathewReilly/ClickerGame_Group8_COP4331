@@ -66,14 +66,14 @@
   min-width: 100vw;
   min-height: 87vh;
   max-height: 87vh;
-  background-image: radial-gradient(rgb(113, 210, 255), rgb(19, 21, 167));
+  background-image: radial-gradient(rgb(99, 92, 164), rgb(22, 20, 26));
 }
 
 .Winter {
   min-width: 100vw;
   min-height: 87vh;
   max-height: 87vh;
-  background-image: radial-gradient(rgb(113, 210, 255), rgb(19, 21, 167));
+  background-image: radial-gradient(rgb(66, 132, 165), rgb(191, 221, 237));
 }
 
 .Game-link {
