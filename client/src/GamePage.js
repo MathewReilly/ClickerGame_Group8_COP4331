@@ -10,18 +10,7 @@ import { useState } from 'react';
 import SettingsModal from './SettingModal';
 import leaderboard from "./Images/Leaderboard.png";
 import settings from "./Images/Settings.png";
-//import RenderSeason from './Seasons';
-
-/*const runExampleRequest = async () => {
-  const response = await fetch('/express_backend');
-  const body = await response.json();
-
-  if (response.status !== 200) {
-    throw Error(body.message) 
-  }
-  return body;
-}*/
-
+import { Link } from 'react-router-dom'
 
 const getCookieValue = (name) => (
   document.cookie.match('(^|;)\\s*' + name + '\\s*=\\s*([^;]+)')?.pop() || ''
@@ -61,22 +50,6 @@ function RenderWinter() {
     <img src={mcAlpin} className="Game-logo" alt="buttonpng" border="0" />
   )
 }
-
-
-/*function RenderSeason({ curSeason }) {
-  season = (Math.floor(score / 20)) % 4;
-  if (curSeason === 0) {
-    return <RenderSpring />
-  } else if (curSeason === 1) {
-    return <RenderSummer />
-  } else if (curSeason === 2) {
-    return <RenderFall />
-  } else if (curSeason === 3) {
-    return <RenderWinter />
-  } else {
-    return <RenderSpring />
-  }
-}*/
 
 function RenderSeason({ curSeason, count_temp, incrementCount_temp }) {
   season = (Math.floor((score + 1) / 250)) % 4;
@@ -125,16 +98,6 @@ function RenderSeason({ curSeason, count_temp, incrementCount_temp }) {
 
 const GamePage = () => {
 
-
-  // const [responseData, setResponseData] = useState(undefined);
-
-  /*useEffect(() => {
-    runExampleRequest()
-      .then(response => setResponseData(response.express))
-      .catch(err => console.log(err));
-
-  }, [])*/
-
   window.onload = function () {
     if (!window.location.hash) {
       window.location = window.location + '#loaded';
@@ -166,8 +129,6 @@ const GamePage = () => {
     });
   }
 
-
-  //
   return (
     <div className="GamePage">
       <header className="Game-header">
@@ -185,7 +146,9 @@ const GamePage = () => {
             <button className="Submit-Button" type="submit" onClick={updateScore}>
               SAVE
             </button>
-            <div> </div>
+            <div></div>
+            <Link to="/logout">Logout</Link>
+            <div></div>
             <button className="Modal-Button" onClick={() => { setOpenSettingModal(true); }}>
               <img src={settings} className="Modal-Image" alt="settingbutton" border="0" />
             </button>
