@@ -27,8 +27,7 @@ const getCookieValue = (name) => (
   document.cookie.match('(^|;)\\s*' + name + '\\s*=\\s*([^;]+)')?.pop() || ''
 );
 
-var score = 0;
-score = parseInt(getCookieValue("currScore"));
+var score = parseInt(getCookieValue("currScore"));
 var season = 0;
 var nickname = getCookieValue("nickname");
 
@@ -157,8 +156,8 @@ const GamePage = () => {
     fetch('http://localhost:5001/updateScore', {
       method: 'PUT',
       headers: {
-        'Accept' : 'application/json',
-        'Content-Type' : 'application/json',
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify({
         nickname,
@@ -179,21 +178,24 @@ const GamePage = () => {
           <div className="Game-info-object">
             <h2>High Score</h2>
             <div id="score"> {count} </div>
+            <div> </div> <div> </div> <div></div>
           </div>
-          <div className="Game-info-object">
-            <button type="submit" onClick={updateScore}>
+          <div className="Game-button-object">
+            <div></div><div></div><div></div><div></div>
+            <button className="Submit-Button" type="submit" onClick={updateScore}>
               SAVE
             </button>
-
+            <div> </div>
             <button className="Modal-Button" onClick={() => { setOpenSettingModal(true); }}>
-              <img src={settings} className="Modal-Button" alt="settingbutton" border="0" />
+              <img src={settings} className="Modal-Image" alt="settingbutton" border="0" />
             </button>
             {openSettingModal && <SettingsModal closeModal={setOpenSettingModal} />}
-
+            <div> </div>
             <button className="Modal-Button" onClick={() => { setOpenLeaderboardModal(true); }}>
-              <img src={leaderboard} className="Modal-Button" alt="leaderboardbutton" border="0" />
+              <img src={leaderboard} className="Modal-Image" alt="leaderboardbutton" border="0" />
             </button>
             {openLeaderboardModal && <LeaderboardModal closeModal={setOpenLeaderboardModal} />}
+            <div></div><div></div><div></div>
           </div>
         </div>
         <div className="backgroundSpacing">
