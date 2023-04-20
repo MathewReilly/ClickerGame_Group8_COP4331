@@ -54,19 +54,11 @@ app.post('/login', async (req, res) => {
     res.json({token, userID: user._id, nickname: user.nickname, currScore: user.currScore});
 });
 
-/*app.put('/updateScore/:nickname', async (req, res) => {
-    let upnickname = req.params;
-    let upScore = req.body;
-    const user = await User.findOneAndUpdate({nickname:upnickname}), {$set:{currScore:upScore}}, {new:true}, (err, data) => {
-        if(data==null){
-            res.status(400).json({message: 'Something went wrong'});
-        }
-        else{
-            res.send(data)
-        }
-    }
-}
-*/  
+app.put('/updateScore', async (req, res) => {
+    const {nickname, upScore} = req.body;
+    const user = await User.findOneAndUpdate({nickname}, {currScore:upScore});
+    res.json({message: 'Score updated successfully'});
+    });
 
 // This displays message that the server running and listening to specified port
 app.listen(port, () => console.log(`Listening on port ${port}`));
