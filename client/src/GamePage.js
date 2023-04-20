@@ -27,8 +27,7 @@ const getCookieValue = (name) => (
   document.cookie.match('(^|;)\\s*' + name + '\\s*=\\s*([^;]+)')?.pop() || ''
 );
 
-var score = 0;
-score = parseInt(getCookieValue("currScore"));
+var score = parseInt(getCookieValue("currScore"));
 var season = 0;
 var nickname = getCookieValue("nickname");
 
@@ -181,16 +180,16 @@ const GamePage = () => {
             <div id="score"> {count} </div>
           </div>
           <div className="Game-info-object">
-            <button type="submit" onClick={updateScore}>
+            <button className="Submit-Button" type="submit" onClick={updateScore}>
               SAVE
             </button>
 
-            <button className="Modal-Button" onClick={() => { setOpenSettingModal(true); }}>
+            <button onClick={() => { setOpenSettingModal(true); }}>
               <img src={settings} className="Modal-Button" alt="settingbutton" border="0" />
             </button>
             {openSettingModal && <SettingsModal closeModal={setOpenSettingModal} />}
 
-            <button className="Modal-Button" onClick={() => { setOpenLeaderboardModal(true); }}>
+            <button onClick={() => { setOpenLeaderboardModal(true); }}>
               <img src={leaderboard} className="Modal-Button" alt="leaderboardbutton" border="0" />
             </button>
             {openLeaderboardModal && <LeaderboardModal closeModal={setOpenLeaderboardModal} />}
