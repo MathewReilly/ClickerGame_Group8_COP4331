@@ -22,11 +22,13 @@ import settings from "./Images/Settings.png";
   return body;
 }*/
 
+
 const getCookieValue = (name) => (
   document.cookie.match('(^|;)\\s*' + name + '\\s*=\\s*([^;]+)')?.pop() || ''
 );
 
-var score = parseInt(getCookieValue("currScore"));
+var score = 0;
+score = parseInt(getCookieValue("currScore"));
 var season = 0;
 //var nickname = getCookieValue("nickname");
 
@@ -127,6 +129,13 @@ const GamePage = () => {
       .catch(err => console.log(err));
 
   }, [])*/
+
+  window.onload = function() {
+    if(!window.location.hash) {
+        window.location = window.location + '#loaded';
+        window.location.reload();
+    }
+}
 
   const [openSettingModal, setOpenSettingModal] = useState(false);
   const [openLeaderboardModal, setOpenLeaderboardModal] = useState(false);
