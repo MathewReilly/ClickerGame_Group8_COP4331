@@ -22,9 +22,13 @@ import settings from "./Images/Settings.png";
   return body;
 }*/
 
+const getCookieValue = (name) => (
+  document.cookie.match('(^|;)\\s*' + name + '\\s*=\\s*([^;]+)')?.pop() || ''
+);
 
+var score = parseInt(getCookieValue("currScore"));
 var season = 0;
-var score = 0;
+//var nickname = getCookieValue("nickname");
 
 function RenderSpring() {
 
@@ -129,7 +133,7 @@ const GamePage = () => {
   const [count, setCount] = useState(score);
   const incrementCount = (count) => {
     // Update state with incremented value
-    score = score + 1;
+    score = (score + 1);
     setCount(score);
   };
 
@@ -143,7 +147,7 @@ const GamePage = () => {
           </div>
           <div className="Game-info-object">
             <h2>High Score</h2>
-            <div id="score"> {count - 1} </div>
+            <div id="score"> {count} </div>
           </div>
           <div className="Game-info-object">
             <button className="openModalBtn" onClick={() => { setOpenSettingModal(true); }}> <img src={settings} className="Modal-Button" alt="settingbutton" border="0" /> </button>
@@ -154,7 +158,7 @@ const GamePage = () => {
           </div>
         </div>
         <div className="backgroundSpacing">
-          <RenderSeason curSeason={season} count_temp={count} incrementCount_temp={incrementCount} />
+          <RenderSeason curSeason={season} count_temp={score} incrementCount_temp={incrementCount} />
         </div>
       </header>
     </div>

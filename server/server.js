@@ -51,8 +51,22 @@ app.post('/login', async (req, res) => {
 
     const token = jwt.sign({email: user.email, id: user._id}, 'test', {expiresIn: '1h'});
 
-    res.json({token, nickname: user.nickname, currScore: user.currScore});
+    res.json({token, userID: user._id, nickname: user.nickname, currScore: user.currScore});
 });
+
+/*app.put('/updateScore/:nickname', async (req, res) => {
+    let upnickname = req.params;
+    let upScore = req.body;
+    const user = await User.findOneAndUpdate({nickname:upnickname}), {$set:{currScore:upScore}}, {new:true}, (err, data) => {
+        if(data==null){
+            res.status(400).json({message: 'Something went wrong'});
+        }
+        else{
+            res.send(data)
+        }
+    }
+}
+*/  
 
 // This displays message that the server running and listening to specified port
 app.listen(port, () => console.log(`Listening on port ${port}`));
