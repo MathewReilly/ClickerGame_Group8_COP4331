@@ -21,10 +21,6 @@ var season = 0;
 var nickname = getCookieValue("nickname");
 
 
-function reload() {
-  window.location.reload();
-}
-
 function RenderSpring() {
 
   return (
@@ -103,6 +99,7 @@ const GamePage = () => {
       window.location = window.location + '#loaded';
       window.location.reload();
     }
+    score = parseInt(getCookieValue("currScore"));
   }
 
   const [openSettingModal, setOpenSettingModal] = useState(false);
@@ -147,7 +144,11 @@ const GamePage = () => {
               SAVE
             </button>
             <div></div>
-            <Link to="/logout">Logout</Link>
+            <Link to="/logout">
+              <button className="Submit-Button" type="submit" onClick={updateScore}>
+                  LOGOUT
+              </button>
+            </Link>
             <div></div>
             <button className="Modal-Button" onClick={() => { setOpenSettingModal(true); }}>
               <img src={settings} className="Modal-Image" alt="settingbutton" border="0" />
