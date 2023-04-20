@@ -153,21 +153,18 @@ const GamePage = () => {
   };
 
 
-  async function updateScore(event) {
-    event.preventDefault();
-    console.log(nickname);
-    console.log(score);
-    const response = await fetch('http://localhost:5001/updateScore', {
+  function updateScore() {
+    fetch('http://localhost:5001/updateScore', {
       method: 'PUT',
       headers: {
-        'Content-Type': 'application/json',
+        'Accept' : 'application/json',
+        'Content-Type' : 'application/json',
       },
       body: JSON.stringify({
         nickname,
         score,
       }),
     });
-    const data = await response.json();
   }
 
 
@@ -184,18 +181,16 @@ const GamePage = () => {
             <div id="score"> {count} </div>
           </div>
           <div className="Game-info-object">
-            <form onSubmit={updateScore}>
-              <button type="submit">
-                SAVE
-              </button>
-            </form>
+            <button type="submit" onClick={updateScore}>
+              SAVE
+            </button>
 
-            <button className="openModalBtn" onClick={() => { setOpenSettingModal(true); }}>
+            <button className="Modal-Button" onClick={() => { setOpenSettingModal(true); }}>
               <img src={settings} className="Modal-Button" alt="settingbutton" border="0" />
             </button>
             {openSettingModal && <SettingsModal closeModal={setOpenSettingModal} />}
 
-            <button className="openModalBtn" onClick={() => { setOpenLeaderboardModal(true); }}>
+            <button className="Modal-Button" onClick={() => { setOpenLeaderboardModal(true); }}>
               <img src={leaderboard} className="Modal-Button" alt="leaderboardbutton" border="0" />
             </button>
             {openLeaderboardModal && <LeaderboardModal closeModal={setOpenLeaderboardModal} />}

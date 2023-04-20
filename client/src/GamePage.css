@@ -21,6 +21,7 @@
   height: 50px;
   width: 50px;
   background-color: transparent;
+  border-color: transparent;
 }
 
 .Game-Button:active {

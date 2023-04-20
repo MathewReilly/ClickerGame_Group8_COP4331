@@ -55,8 +55,8 @@ app.post('/login', async (req, res) => {
 });
 
 app.put('/updateScore', async (req, res) => {
-    const {nickname, upScore} = req.body;
-    const user = await User.findOneAndUpdate({nickname}, {currScore:upScore});
+    const {nickname, score} = req.body;
+    const user = await User.findOneAndUpdate({nickname}, {currScore:score});
     res.json({message: 'Score updated successfully'});
     });
 
