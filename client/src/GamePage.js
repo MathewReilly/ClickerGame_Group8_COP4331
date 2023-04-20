@@ -32,6 +32,7 @@ score = parseInt(getCookieValue("currScore"));
 var season = 0;
 var nickname = getCookieValue("nickname");
 
+
 function reload() {
   window.location.reload();
 }
@@ -123,23 +124,9 @@ function RenderSeason({ curSeason, count_temp, incrementCount_temp }) {
   }
 }
 
-
 const GamePage = () => {
 
-  const updateScore = async (event) => {
-    console.log("HELLO PLS WORK");
-    event.preventDefault();
-    const response = await fetch('http://localhost:5001/updateScore', {
-        method: 'PUT',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-            nickname,
-            score,
-        }),
-    });
-  }
+
   // const [responseData, setResponseData] = useState(undefined);
 
   /*useEffect(() => {
@@ -165,6 +152,25 @@ const GamePage = () => {
     setCount(score);
   };
 
+
+  async function updateScore(event) {
+    event.preventDefault();
+    console.log(nickname);
+    console.log(score);
+    const response = await fetch('http://localhost:5001/updateScore', {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        nickname,
+        score,
+      }),
+    });
+    const data = await response.json();
+  }
+
+
   //
   return (
     <div className="GamePage">
@@ -178,9 +184,11 @@ const GamePage = () => {
             <div id="score"> {count} </div>
           </div>
           <div className="Game-info-object">
-            <button type="submit" onClick={updateScore}>
-              SAVE
-            </button>
+            <form onSubmit={updateScore}>
+              <button type="submit">
+                SAVE
+              </button>
+            </form>
 
             <button className="openModalBtn" onClick={() => { setOpenSettingModal(true); }}>
               <img src={settings} className="Modal-Button" alt="settingbutton" border="0" />
