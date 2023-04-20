@@ -7,7 +7,6 @@ const User = new mongoose.Schema(
     password: { type: String, required: true },
     nickname: { type: String, required: true, unique: true },
     currScore: { type: Number, default : 0 },
-    quote: { type: String, required: false },
     },
     { collection: 'user-data' }
 );

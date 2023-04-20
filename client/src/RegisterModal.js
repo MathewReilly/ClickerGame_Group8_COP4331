@@ -11,7 +11,7 @@ function RegisterModal({ closeModal }) {
   async function registerUser(event) {
     event.preventDefault();
 
-    const response = await fetch('http://localhost:5001/api/register', {
+    const response = await fetch('http://localhost:5001/register', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -25,7 +25,7 @@ function RegisterModal({ closeModal }) {
     })
 
     const data = await response.json();
-    console.log(data);
+    alert(data.message);
   }
 
   return (
@@ -80,9 +80,6 @@ function RegisterModal({ closeModal }) {
             id="cancelBtn"
           >
             Cancel
-          </button>
-          <button id="confirmBtn">Create Acount
-
           </button>
         </div>
       </div>

@@ -23,8 +23,19 @@ import settings from "./Images/Settings.png";
 }*/
 
 
-var season = 0;
+const getCookieValue = (name) => (
+  document.cookie.match('(^|;)\\s*' + name + '\\s*=\\s*([^;]+)')?.pop() || ''
+);
+
 var score = 0;
+score = parseInt(getCookieValue("currScore"));
+var season = 0;
+var nickname = getCookieValue("nickname");
+
+
+function reload() {
+  window.location.reload();
+}
 
 function RenderSpring() {
 
@@ -69,7 +80,7 @@ function RenderWinter() {
 }*/
 
 function RenderSeason({ curSeason, count_temp, incrementCount_temp }) {
-  season = (Math.floor(score / 20)) % 4;
+  season = (Math.floor((score + 1) / 250)) % 4;
   if (curSeason === 0) {
     return (
       <div className="Spring">
@@ -115,6 +126,7 @@ function RenderSeason({ curSeason, count_temp, incrementCount_temp }) {
 
 const GamePage = () => {
 
+
   // const [responseData, setResponseData] = useState(undefined);
 
   /*useEffect(() => {
@@ -124,14 +136,37 @@ const GamePage = () => {
 
   }, [])*/
 
+  window.onload = function () {
+    if (!window.location.hash) {
+      window.location = window.location + '#loaded';
+      window.location.reload();
+    }
+  }
+
   const [openSettingModal, setOpenSettingModal] = useState(false);
   const [openLeaderboardModal, setOpenLeaderboardModal] = useState(false);
   const [count, setCount] = useState(score);
   const incrementCount = (count) => {
     // Update state with incremented value
-    score = score + 1;
+    score = (score + 8);
     setCount(score);
   };
+
+
+  function updateScore() {
+    fetch('http://localhost:5001/updateScore', {
+      method: 'PUT',
+      headers: {
+        'Accept' : 'application/json',
+        'Content-Type' : 'application/json',
+      },
+      body: JSON.stringify({
+        nickname,
+        score,
+      }),
+    });
+  }
+
 
   //
   return (
@@ -143,18 +178,26 @@ const GamePage = () => {
           </div>
           <div className="Game-info-object">
             <h2>High Score</h2>
-            <div id="score"> {count - 1} </div>
+            <div id="score"> {count} </div>
           </div>
           <div className="Game-info-object">
-            <button className="openModalBtn" onClick={() => { setOpenSettingModal(true); }}> <img src={settings} className="Modal-Button" alt="settingbutton" border="0" /> </button>
+            <button type="submit" onClick={updateScore}>
+              SAVE
+            </button>
+
+            <button className="Modal-Button" onClick={() => { setOpenSettingModal(true); }}>
+              <img src={settings} className="Modal-Button" alt="settingbutton" border="0" />
+            </button>
             {openSettingModal && <SettingsModal closeModal={setOpenSettingModal} />}
 
-            <button className="openModalBtn" onClick={() => { setOpenLeaderboardModal(true); }}> <img src={leaderboard} className="Modal-Button" alt="leaderboardbutton" border="0" /> </button>
+            <button className="Modal-Button" onClick={() => { setOpenLeaderboardModal(true); }}>
+              <img src={leaderboard} className="Modal-Button" alt="leaderboardbutton" border="0" />
+            </button>
             {openLeaderboardModal && <LeaderboardModal closeModal={setOpenLeaderboardModal} />}
           </div>
         </div>
         <div className="backgroundSpacing">
-          <RenderSeason curSeason={season} count_temp={count} incrementCount_temp={incrementCount} />
+          <RenderSeason curSeason={season} count_temp={score} incrementCount_temp={incrementCount} />
         </div>
       </header>
     </div>
