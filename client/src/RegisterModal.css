@@ -8,6 +8,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    
   }
   
   .modalContainer{
@@ -66,6 +67,13 @@
     border-radius: 8px;
     font-size: 20px;
     cursor: pointer;
+  }
+
+  #confirmBtn{
+    background-color: white;
+    color : #375049;
+    border-style: solid;
+    border-color: #375049;
   }
   
   #cancelBtn{

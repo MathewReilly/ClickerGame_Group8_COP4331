@@ -3,9 +3,10 @@ import RegisterModal from "./RegisterModal";
 import {useState} from 'react';
 import {Link} from 'react-router-dom';
 
-const HomePage = () => {
+const HomePage = () => { 
+    
+    const[openModal, setOpenModal] = useState(false);
 
-    const[openModal, setOpenModal] = useState(false); 
 
     return (
         <div className="HomePage">

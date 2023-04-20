@@ -2,10 +2,15 @@
 import React from 'react';
 import flower from './Images/Flower.png';
 import sun from './Images/Sun.png';
+import lantern from './Images/JackOLantern.png';
+import mcAlpin from './Images/McAlpin.png';
 import './GamePage.css';
 import LeaderboardModal from "./LeaderboardModal";
 import { useState } from 'react';
 import SettingsModal from './SettingModal';
+import leaderboard from "./Images/Leaderboard.png";
+import settings from "./Images/Settings.png";
+//import RenderSeason from './Seasons';
 
 /*const runExampleRequest = async () => {
   const response = await fetch('/express_backend');
@@ -17,93 +22,94 @@ import SettingsModal from './SettingModal';
   return body;
 }*/
 
-var visible = true;
+
 var season = 0;
 var score = 0;
 
 function RenderSpring() {
-  if (visible) {
-    return (
-      <div className="Spring">
-        <div className="GameLogo">
-          <img src={flower} className="Game-logo" alt="flower" width="42%" height="42%" />
-        </div>
-      </div>
-    );
-  } else {
-    return (
-      <div className="Spring">
-      </div>
-    );
-  }
+
+  return (
+    <img src={flower} className="Game-logo" alt="buttonpng" border="0" />
+  );
 }
 
 function RenderSummer() {
-  if (visible) {
-    return (
-      <div className="Summer">
-        <div className="GameLogo">
-          <img src={sun} className="Game-logo" alt="sun" width="42%" height="42%" />
-        </div>
-      </div>
-    );
-  } else {
-    return (
-      <div className="Summer">
-      </div>
-    );
-  }
+  return (
+    <img src={sun} className="Game-logo" alt="buttonpng" border="0" />
+  );
 }
 
-/*function RenderFall()
-{
-  if(visible)
-  {
-    return (
-      <div className="fall">
-        <div className="GameLogo">
-          <img src={ghost} className="Game-logo" alt="ghost" width="42%" height="42%"/>;
-        </div>
-      </div>
-    )
-  } else
-  {
-    return (
-      <div className="fall">
-      </div>
-    )
-  }
-}*/
 
-/*function RenderWinter()
-{
-  if(visible)
-  {
-    return (
-      <div className="spring">
-        <img src={mcAlpin} className="Game-logo" alt="mcAlpin" width="42%" height="42%"/>;
-      </div>
-    )
-  } else
-  {
-    return (
-      <div className="spring">
-      </div>
-    )
-  }
-}*/
+function RenderFall() {
+  return (
+    <img src={lantern} className="Game-logo" alt="buttonpng" border="0" />
+  )
+}
 
-function RenderSeason({ curSeason, curScore }) {
+function RenderWinter() {
+  return (
+    <img src={mcAlpin} className="Game-logo" alt="buttonpng" border="0" />
+  )
+}
+
+
+/*function RenderSeason({ curSeason }) {
+  season = (Math.floor(score / 20)) % 4;
   if (curSeason === 0) {
     return <RenderSpring />
   } else if (curSeason === 1) {
     return <RenderSummer />
   } else if (curSeason === 2) {
-    return <RenderSpring />
-    //return <RenderFall />;
+    return <RenderFall />
+  } else if (curSeason === 3) {
+    return <RenderWinter />
   } else {
     return <RenderSpring />
-    //return <RenderWinter />;
+  }
+}*/
+
+function RenderSeason({ curSeason, count_temp, incrementCount_temp }) {
+  season = (Math.floor(score / 20)) % 4;
+  if (curSeason === 0) {
+    return (
+      <div className="Spring">
+        <button type="submit" className="Game-Button" onClick={incrementCount_temp}>
+          <RenderSpring />
+        </button>
+      </div>
+    )
+  } else if (curSeason === 1) {
+    return (
+      <div className="Summer">
+        <button type="submit" className="Game-Button" onClick={incrementCount_temp}>
+          <RenderSummer />
+        </button>
+      </div>
+    )
+  } else if (curSeason === 2) {
+    return (
+      <div className="Fall">
+        <button type="submit" className="Game-Button" onClick={incrementCount_temp}>
+          <RenderFall />
+        </button>
+      </div>
+    )
+  } else if (curSeason === 3) {
+    return (
+      <div className="Winter">
+        <button type="submit" className="Game-Button" onClick={incrementCount_temp}>
+          <RenderWinter curSeason={season} />
+        </button>
+      </div>
+    )
+  } else {
+    return (
+      <div className="Spring">
+        <button type="submit" className="Game-Button" onClick={incrementCount_temp}>
+          <RenderSpring />
+        </button>
+      </div>
+    )
   }
 }
 
@@ -118,31 +124,37 @@ const GamePage = () => {
 
   }, [])*/
 
-  //
-
   const [openSettingModal, setOpenSettingModal] = useState(false);
   const [openLeaderboardModal, setOpenLeaderboardModal] = useState(false);
+  const [count, setCount] = useState(score);
+  const incrementCount = (count) => {
+    // Update state with incremented value
+    score = score + 1;
+    setCount(score);
+  };
 
+  //
   return (
     <div className="GamePage">
       <header className="Game-header">
         <div className="Game-info">
-            <div className="Game-info-object">
-                <h1>Group 8</h1> 
-            </div>
-            <div className="Game-info-object"> 
-                <h2>High Score</h2>
-                <div id = "score"> 0 </div> 
-            </div>
-            <div className="Game-info-object">
-              <button className="openModalBtn" onClick={() =>{setOpenSettingModal(true); visible = false;}}>Settings</button>
-                {openSettingModal && <SettingsModal closeModal={setOpenSettingModal}/> }
-              <button className="openModalBtn" onClick={() =>{setOpenLeaderboardModal(true); visible = false;}}>Leaderboard</button>
-                { openLeaderboardModal && <LeaderboardModal closeModal={setOpenLeaderboardModal}/>} 
-            </div>
+          <div className="Game-info-object">
+            <h1>Group 8</h1>
+          </div>
+          <div className="Game-info-object">
+            <h2>High Score</h2>
+            <div id="score"> {count - 1} </div>
+          </div>
+          <div className="Game-info-object">
+            <button className="openModalBtn" onClick={() => { setOpenSettingModal(true); }}> <img src={settings} className="Modal-Button" alt="settingbutton" border="0" /> </button>
+            {openSettingModal && <SettingsModal closeModal={setOpenSettingModal} />}
+
+            <button className="openModalBtn" onClick={() => { setOpenLeaderboardModal(true); }}> <img src={leaderboard} className="Modal-Button" alt="leaderboardbutton" border="0" /> </button>
+            {openLeaderboardModal && <LeaderboardModal closeModal={setOpenLeaderboardModal} />}
+          </div>
         </div>
-        <div>
-          <RenderSeason curSeason={season} curScore={score} />
+        <div className="backgroundSpacing">
+          <RenderSeason curSeason={season} count_temp={count} incrementCount_temp={incrementCount} />
         </div>
       </header>
     </div>
