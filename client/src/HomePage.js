@@ -56,7 +56,7 @@ const HomePage = () => {
                         placeholder="Password"
                         /><br />
                     <button type="submit">Login</button>
-                    </form>
+                </form>
                 </div>
                 <div>
                     <p>
