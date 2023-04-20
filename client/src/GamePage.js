@@ -32,10 +32,6 @@ var season = 0;
 var nickname = getCookieValue("nickname");
 
 
-function reload() {
-  window.location.reload();
-}
-
 function RenderSpring() {
 
   return (
@@ -134,6 +130,8 @@ const GamePage = () => {
       .catch(err => console.log(err));
 
   }, [])*/
+
+  score = parseInt(getCookieValue("currScore"));
 
   window.onload = function () {
     if (!window.location.hash) {
