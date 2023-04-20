@@ -2,14 +2,14 @@ import './HomePage.css';
 import RegisterModal from "./RegisterModal";
 import {useState} from 'react';
 import {useCookies} from 'react-cookie';
-import { useNavigate } from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 
 const HomePage = () => { 
     
-    const[openModal, setOpenModal] = useState(false);
+    const [openModal, setOpenModal] = useState(false);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [, setCookie] = useCookies(['access_token']);
+    const [cookies, setCookie] = useCookies(['access_token']);
     const navigate = useNavigate();
 
     const onLogin = async (event) => {

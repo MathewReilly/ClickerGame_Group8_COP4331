@@ -26,9 +26,14 @@ const getCookieValue = (name) => (
   document.cookie.match('(^|;)\\s*' + name + '\\s*=\\s*([^;]+)')?.pop() || ''
 );
 
-var score = parseInt(getCookieValue("currScore"));
+var score = 0; 
+score = parseInt(getCookieValue("currScore"));
 var season = 0;
 //var nickname = getCookieValue("nickname");
+
+function reload() {
+  window.location.reload();
+}
 
 function RenderSpring() {
 
@@ -73,7 +78,7 @@ function RenderWinter() {
 }*/
 
 function RenderSeason({ curSeason, count_temp, incrementCount_temp }) {
-  season = (Math.floor(score / 20)) % 4;
+  season = (Math.floor((score + 1) / 250)) % 4;
   if (curSeason === 0) {
     return (
       <div className="Spring">
@@ -119,6 +124,7 @@ function RenderSeason({ curSeason, count_temp, incrementCount_temp }) {
 
 const GamePage = () => {
 
+  
   // const [responseData, setResponseData] = useState(undefined);
 
   /*useEffect(() => {
@@ -133,7 +139,7 @@ const GamePage = () => {
   const [count, setCount] = useState(score);
   const incrementCount = (count) => {
     // Update state with incremented value
-    score = (score + 1);
+    score = (score + 8);
     setCount(score);
   };
 

@@ -4,6 +4,7 @@
 
 .HomePage-header{
     background-color: #375049;
+    background-image: linear-gradient(135deg, rgb(227, 132, 209), rgb(73, 95, 208), rgb(82, 85, 181), rgb(195, 199, 202));
     min-height: 100vh;
     display: flex;
     flex-direction: column;

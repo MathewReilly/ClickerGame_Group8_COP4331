@@ -81,9 +81,6 @@ function RegisterModal({ closeModal }) {
           >
             Cancel
           </button>
-          <button id="confirmBtn">Create Account
-
-          </button>
         </div>
       </div>
     </div>
