@@ -12,7 +12,6 @@ function LeaderboardModal({closeModal}){
       .then(response => response.json())
       .then(data => {
         setLeaderboardData(data);
-        console.log(data);
       })
       .catch(error => {
         console.error(error);
