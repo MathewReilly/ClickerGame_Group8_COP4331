@@ -3,7 +3,7 @@ import RegisterModal from "./RegisterModal";
 import {useState} from 'react';
 import {useCookies} from 'react-cookie';
 import {useNavigate} from 'react-router-dom';
-
+import suprise from "./Images/Suprise.jpg";
 const HomePage = () => { 
     
     const [openModal, setOpenModal] = useState(false);
@@ -66,7 +66,7 @@ const HomePage = () => {
                     </p>
                     <a
                             className="HomePage-link"
-                            href="https://cdn.discordapp.com/attachments/1060706693610209281/1067100584693485638/IMG_0914.png"
+                            href={suprise}
                             target="_blank"
                             rel="noopener noreferrer"
                         >

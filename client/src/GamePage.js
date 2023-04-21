@@ -9,7 +9,7 @@ import LeaderboardModal from "./LeaderboardModal";
 import { useState } from 'react';
 import SettingsModal from './SettingModal';
 import leaderboard from "./Images/Leaderboard.png";
-import settings from "./Images/Settings.png";
+import about from "./Images/About.png";
 import { Link } from 'react-router-dom'
 
 const getCookieValue = (name) => (
@@ -150,11 +150,17 @@ const GamePage = () => {
               </button>
             </Link>
             <div></div>
+
+            
             <button className="Modal-Button" onClick={() => { setOpenSettingModal(true); }}>
-              <img src={settings} className="Modal-Image" alt="settingbutton" border="0" />
+              <img src={about} className="Modal-Image" alt="aboutbutton" border="0" />
             </button>
             {openSettingModal && <SettingsModal closeModal={setOpenSettingModal} />}
             <div> </div>
+
+
+
+
             <button className="Modal-Button" onClick={() => { setOpenLeaderboardModal(true); }}>
               <img src={leaderboard} className="Modal-Image" alt="leaderboardbutton" border="0" />
             </button>
