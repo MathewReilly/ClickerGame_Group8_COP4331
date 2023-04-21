@@ -22,11 +22,10 @@ function SettingsModal({closeModal}){
               <p>Click the icon in the center of the screen to increase your score by 8!</p> 
               <p> You can save your score by pressing the Save button or by pressing the Logout button. </p> 
               <p> Keep pressing to experience the changing of seasons and more suprises! </p>
+              <p> Press the Leaderboard button to display the Top 8 scores!</p>
             </div>
             <div className="body">
-            
-            
-                
+          
             </div>
           </div>
         </div>
