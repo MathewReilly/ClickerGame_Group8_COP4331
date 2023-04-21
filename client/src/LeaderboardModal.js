@@ -1,7 +1,24 @@
-import React from 'react' 
+
 import "./LeaderboardModal.css"
+import { useEffect, useState } from 'react';
+
 
 function LeaderboardModal({closeModal}){
+
+    const [leaderboardData, setLeaderboardData] = useState([]);
+
+    useEffect(() => {
+    fetch('/leaderboard')
+      .then(response => response.json())
+      .then(data => {
+        setLeaderboardData(data);
+        console.log(data);
+      })
+      .catch(error => {
+        console.error(error);
+      });
+  }, []);
+
     return (
         <div className="modalBackgroundLeaderboard">
           <div className="modalContainerLeaderboard">
@@ -14,49 +31,29 @@ function LeaderboardModal({closeModal}){
                 X
               </button>
             </div>
-            <div className="title">
-              <h1>Leaderboard</h1>
-            </div>
-                <table>
-                    <tr>
-                      <th>Username</th>
-                      <th>Score</th>
-                    </tr>
-                    <tr> 
-                    <td> PlaceHolder  </td> <td>  1</td>
-                    </tr>
-                    <tr> 
-                    <td> PlaceHolder  </td> <td>  1</td>
-                    </tr>
-                    <tr> 
-                    <td> PlaceHolder  </td> <td>  1</td>
-                    </tr>
-                    <tr> 
-                    <td> PlaceHolder  </td> <td>  1</td>
-                    </tr>
-                    <tr> 
-                    <td> PlaceHolder  </td> <td>  1</td>
-                    </tr>
-                    <tr> 
-                    <td> PlaceHolder  </td> <td>  1</td>
-                    </tr>
-                    <tr> 
-                    <td> PlaceHolder  </td> <td>  1</td>
-                    </tr>
-                    <tr> 
-                    <td> PlaceHolder  </td> <td>  1</td>
-                    </tr>
-                    <tr> 
-                    <td> PlaceHolder  </td> <td>  1</td>
-                    </tr>
-                    <tr> 
-                    <td> PlaceHolder  </td> <td>  1</td>
-                    </tr>
-                    
-                </table>
-            </div>
-          
-        </div>
+            <div>
+      <h1>Leaderboard:</h1>
+      <table>
+        <thead>
+          <tr>
+            <th>Rank</th>
+            <th>Nickname</th>
+            <th>Score</th>
+          </tr>
+        </thead>
+        <tbody>
+          {leaderboardData.map((data, index) => (
+            <tr key={data._id}>
+              <td>{index + 1}</td>
+              <td>{data.nickname}</td>
+              <td>{data.currScore}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+    </div>
+    </div>
       );
     }
 

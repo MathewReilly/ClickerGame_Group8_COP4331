@@ -60,5 +60,23 @@ app.put('/updateScore', async (req, res) => {
     res.json({message: 'Score updated successfully'});
     });
 
+const leaderboardSchema = new mongoose.Schema({
+    username: String,
+    score: Number 
+});
+
+const Leaderboard = mongoose.model('clicker.user-data', leaderboardSchema);
+module.exports = Leaderboard; 
+
+
+    app.get('/leaderboard', async (req, res) => {
+        //const user = await User.findOne({email: 'ross.ss'});
+        const leaderboardData = await User.find().sort({ currScore: -1 }).limit(8);
+    res.send(leaderboardData);
+        });
+
+
+
+
 // This displays message that the server running and listening to specified port
 app.listen(port, () => console.log(`Listening on port ${port}`));

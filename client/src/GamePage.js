@@ -150,21 +150,15 @@ const GamePage = () => {
               </button>
             </Link>
             <div></div>
-
-            
             <button className="Modal-Button" onClick={() => { setOpenSettingModal(true); }}>
-              <img src={about} className="Modal-Image" alt="aboutbutton" border="0" />
+              <img src={about} className="Modal-Image" alt="settingbutton" border="0" />
             </button>
             {openSettingModal && <SettingsModal closeModal={setOpenSettingModal} />}
             <div> </div>
-
-
-
-
             <button className="Modal-Button" onClick={() => { setOpenLeaderboardModal(true); }}>
               <img src={leaderboard} className="Modal-Image" alt="leaderboardbutton" border="0" />
             </button>
-            {openLeaderboardModal && <LeaderboardModal closeModal={setOpenLeaderboardModal} />}
+            {openLeaderboardModal && <LeaderboardModal closeModal={setOpenLeaderboardModal}/>}
             <div></div><div></div><div></div>
           </div>
         </div>
