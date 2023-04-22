@@ -9,7 +9,7 @@ const HomePage = () => {
     const [openModal, setOpenModal] = useState(false);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [cookies, setCookie] = useCookies(['access_token']);
+    const [, setCookie] = useCookies(['access_token']);
     const navigate = useNavigate();
 
     const onLogin = async (event) => {
