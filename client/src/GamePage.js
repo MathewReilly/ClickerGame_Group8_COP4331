@@ -113,7 +113,7 @@ const GamePage = () => {
 
 
   function updateScore() {
-    fetch('http://localhost:5001/updateScore', {
+    fetch('http://cop4331-23.com:5001/updateScore', {
       method: 'PUT',
       headers: {
         'Accept': 'application/json',

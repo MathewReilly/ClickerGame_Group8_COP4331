@@ -11,7 +11,7 @@ function RegisterModal({ closeModal }) {
   async function registerUser(event) {
     event.preventDefault();
 
-    const response = await fetch('http://localhost:5001/register', {
+    const response = await fetch('http://cop4331-23.com:5001/register', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

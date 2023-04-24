@@ -14,7 +14,7 @@ const HomePage = () => {
 
     const onLogin = async (event) => {
         event.preventDefault();
-        const response = await fetch('http://localhost:5001/login', {
+        const response = await fetch('http://cop4331-23.com:5001/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

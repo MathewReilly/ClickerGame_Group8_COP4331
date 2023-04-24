@@ -8,7 +8,7 @@ function LeaderboardModal({closeModal}){
     const [leaderboardData, setLeaderboardData] = useState([]);
 
     useEffect(() => {
-    fetch('/leaderboard')
+    fetch('http://cop4331-23.com:5001/leaderboard')
       .then(response => response.json())
       .then(data => {
         setLeaderboardData(data);
