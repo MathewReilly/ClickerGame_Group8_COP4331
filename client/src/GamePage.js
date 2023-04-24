@@ -144,7 +144,7 @@ const GamePage = () => {
               SAVE
             </button>
             <div></div>
-            <Link to="/logout">
+            <Link to="/">
               <button className="Submit-Button" type="submit" onClick={updateScore}>
                   LOGOUT
               </button>
